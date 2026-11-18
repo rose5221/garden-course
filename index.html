@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>园林史·文明长课 | 苏科大 344</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app">
+
+  <!-- 启动页 -->
+  <section id="launch">
+    <div class="lc-bg"></div>
+    <div class="lc-inner">
+      <div class="lc-kicker">中国古典园林史 × 西方园林史</div>
+      <h1>园林史 · 文明长课</h1>
+      <p class="lc-sub">从公元前 2000 年的尼罗河，走到 1900 年的纽约。<br>
+        46 站，6 天走完一轮。</p>
+
+      <div class="lc-stats">
+        <div><b>46</b><span>站</span></div>
+        <div><b>105</b><span>道自拟题</span></div>
+        <div><b>6</b><span>天一轮</span></div>
+      </div>
+
+      <div class="lc-actions">
+        <button id="btnCivil" class="lc-main">
+          <i>▶</i> 文明启动
+          <small>自动播放，像纪录片一样走完今天</small>
+        </button>
+        <button id="btnBrowse" class="lc-sec">按站浏览</button>
+      </div>
+
+      <div class="lc-days" id="launchDays"></div>
+    </div>
+  </section>
+
+  <!-- 主界面 -->
+  <div id="main" class="hidden">
+    <header id="top">
+      <button id="btnHome" class="brand">
+        <span class="mark">園</span>
+        <span class="ttl"><b>园林史·文明长课</b></span>
+      </button>
+      <div class="topMid">
+        <span id="dayBadge">第 1 天</span>
+        <span id="stopBadge">01 / 46</span>
+      </div>
+      <div class="tools">
+        <button id="btnMap" class="ico" title="地图">◎</button>
+        <button id="btnSearch" class="ico" title="搜索">⌕</button>
+        <button id="btnCivil2" class="ico wide" title="文明启动">▶ 文明</button>
+      </div>
+    </header>
+
+    <!-- 地图层 -->
+    <div id="mapWrap" class="hidden">
+      <canvas id="map"></canvas>
+      <canvas id="fx"></canvas>
+      <div id="pins"></div>
+      <div id="mapHud">
+        <div id="hudPlace">—</div>
+        <div id="hudYear">—</div>
+      </div>
+      <button id="mapClose" class="mapClose">收起地图</button>
+    </div>
+
+    <!-- 课程主体 -->
+    <main id="lesson">
+      <div id="lessonInner"></div>
+    </main>
+
+    <!-- 底部导航 -->
+    <footer id="nav">
+      <button id="btnPrev">← 上一站</button>
+      <div id="progress"><div id="progressBar"></div></div>
+      <button id="btnNext" class="primary">下一站 →</button>
+    </footer>
+  </div>
+
+  <!-- 文明启动播放层 -->
+  <section id="cinema" class="hidden">
+    <canvas id="cineMap"></canvas>
+    <canvas id="cineFx"></canvas>
+    <div class="cine-vignette"></div>
+    <div class="cine-top">
+      <span id="cineDay">第 1 天</span>
+      <span id="cineCount">1 / 8</span>
+      <button id="cineExit">退出</button>
+    </div>
+    <div class="cine-body">
+      <div class="cine-year" id="cineYear"></div>
+      <div class="cine-place" id="cinePlace"></div>
+      <h2 id="cineTitle"></h2>
+      <p id="cineLead"></p>
+      <ul id="cinePts"></ul>
+    </div>
+    <div class="cine-bottom">
+      <div id="cineBar"><i></i></div>
+      <div class="cine-ctrl">
+        <button id="cinePause">暂停</button>
+        <button id="cineSkip">跳过本日</button>
+        <button id="cineNextStop">下一站 →</button>
+      </div>
+    </div>
+    <div id="cineDone" class="hidden">
+      <h2>今天走完了</h2>
+      <p id="cineDoneText"></p>
+      <div class="cine-done-acts">
+        <button id="cineTomorrow">明天继续</button>
+        <button id="cineQuiz">做今天的题</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 搜索 -->
+  <div id="searchBox" class="hidden">
+    <input id="searchInput" placeholder="搜园名 / 人物 / 年代 / 术语…" autocomplete="off">
+    <div id="searchResults"></div>
+  </div>
+
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
